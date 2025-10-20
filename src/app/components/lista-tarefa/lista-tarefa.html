@@ -2,10 +2,10 @@
     <h2 class="title">CADASTRO DE TAREFAS</h2>
     <form class="form" (ngSubmit)="adicionarTarefa()">
         <label for="descricao">Descrição:</label>
-        <input type="text" id="descricao" [(ngModel)]="novaTarefa().descricao" name="descricao" required>
+        <input class="input" type="text" [(ngModel)]="novaTarefa().descricao" name="descricao">
         <br>
         <label for="status">Status:</label>
-        <select style="width: 8rem;" id="status" [(ngModel)]="novaTarefa().status" name="status" required>
+        <select class="select" style="width: 8rem;" [(ngModel)]="novaTarefa().status" name="status" required>
             <option value="Pendente">Pendente</option>
             <option value="Em Progresso">Em Progresso</option>
             <option value="Concluída">Concluída</option>
@@ -13,9 +13,10 @@
         <br>
         <button class="btnSubmit" type="submit">Adicionar Tarefa</button>
     </form>
+    <div class="divider"></div>
 
+    <h2>Lista de Tarefas - Total: {{totalTarefas()}}</h2>
     <div class="list">
-        <h2>Lista de Tarefas - Total: {{totalTarefas()}}</h2>
         @for (tarefa of tarefas(); track tarefa.id) {
         <app-tarefa [tarefa]="tarefa" (tarefaExcluida)="onTarefaExcluida(tarefa)"
             (tarefaConcluida)="onTarefaConcluida(tarefa)"></app-tarefa>

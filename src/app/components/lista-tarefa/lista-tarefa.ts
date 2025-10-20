@@ -16,6 +16,12 @@ export class ListaTarefa {
   totalTarefas = computed(() => this.tarefas().length);
 
   adicionarTarefa() {
+
+    if (!this.novaTarefa().descricao.trim()) {
+      alert('A descrição da tarefa não pode ser vazia!');
+      return;
+    }
+
     this.novaTarefa.update(tarefa => ({
       ...tarefa,
       id: this.tarefas().length + 1
@@ -30,6 +36,5 @@ export class ListaTarefa {
 
   onTarefaConcluida(tarefa: TarefaModel) {
     tarefa.status = 'Concluída';
-    // this.tarefas.update(tarefas => tarefas.filter(t => t.id !== tarefa.id));
   }
 }

@@ -25,4 +25,18 @@ export class Tarefa {
       this.tarefaConcluida.emit(tarefa);
     }
   }
+
+  corFundoTarefa(): string {
+    const tarefa = this.tarefa();
+    if (tarefa?.status === 'Concluída') {
+      return '#4CAF50';
+    }
+    if (tarefa?.status === 'Em Progresso') {
+      return '#fff23fff';
+    }
+    if (tarefa?.status === 'Pendente') {
+      return '#cf224dff';
+    }
+    return '';
+  }
 }

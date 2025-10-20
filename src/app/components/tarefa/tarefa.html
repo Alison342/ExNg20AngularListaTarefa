@@ -1,7 +1,8 @@
-<div class="card">
-    <h1>Descrição: {{tarefa()?.descricao}}</h1>
-    <h2>Status: {{tarefa()?.status}}</h2>
-
-    <button (click) = "removerTarefa()">Remover</button>
-    <button (click) = "concluirTarefa()">Concluir</button>
+<div class="card" [style.background-color]="corFundoTarefa()">
+    <span>Descrição: {{tarefa()?.descricao}}</span>
+    <span>Status: {{tarefa()?.status}}</span>
+    <div style="display: flex; gap: 16px" class="buttons">
+        <button class="btnConcluir" (click)="concluirTarefa()">Concluir</button>
+        <button class="btnRemover" (click)="removerTarefa()">Remover</button>
+    </div>
 </div>
